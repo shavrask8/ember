@@ -21,7 +21,8 @@ enum class WidgetKind(
     TIMER(R.string.wk_timer, R.string.wk_timer_d, TimerWidget::class.java, 180, 90, true),
     STRIP(R.string.wk_strip, R.string.wk_strip_d, StripWidget::class.java, 300, 64),
     STATS(R.string.wk_stats, R.string.wk_stats_d, StatsWidget::class.java, 300, 170),
-    OVERVIEW(R.string.wk_overview, R.string.wk_overview_d, OverviewWidget::class.java, 300, 170);
+    OVERVIEW(R.string.wk_overview, R.string.wk_overview_d, OverviewWidget::class.java, 300, 170),
+    CUSTOM(R.string.wk_custom, R.string.wk_custom_d, CustomWidget::class.java, 300, 170);
 
     companion object {
         fun of(className: String?): WidgetKind? = values().firstOrNull { it.cls.name == className }
@@ -91,7 +92,7 @@ object WidgetPrefs {
 
     fun remove(c: Context, id: Int) {
         val e = sp(c).edit()
-        listOf("p", "t", "o", "m", "l", "r", "a", "s", "c", "h").forEach { e.remove("${id}_$it") }
+        listOf("p", "t", "o", "m", "l", "r", "a", "s", "c", "h", "x").forEach { e.remove("${id}_$it") }
         e.apply()
     }
 }

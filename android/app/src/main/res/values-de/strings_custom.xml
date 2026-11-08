@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wk_custom">Eigenes</string>
+    <string name="wk_custom_d">Dein eigenes: Blöcke, Farben, Schriften · jede Größe</string>
+    <string name="widget_custom">Ember · eigenes</string>
+    <string name="cw_blocks">Blöcke</string>
+    <string name="cw_blocks_d">Wähle und ordne, was das Widget zeigt</string>
+    <string name="cw_b_header">Kopfzeile</string>
+    <string name="cw_b_countdown">Countdown</string>
+    <string name="cw_b_chart">7-Tage-Diagramm</string>
+    <string name="cw_b_updated">Aktualisierungszeit</string>
+    <string name="cw_style">Limits als</string>
+    <string name="cw_st_rings">Ringe</string>
+    <string name="cw_st_bars">Balken</string>
+    <string name="cw_st_numbers">Zahlen</string>
+    <string name="cw_bg">Hintergrund</string>
+    <string name="cw_opacity">Hintergrund-Deckkraft</string>
+    <string name="cw_gradient">Verlauf</string>
+    <string name="cw_border">Rahmen</string>
+    <string name="cw_accent">Akzentfarbe</string>
+    <string name="cw_font">Schrift</string>
+    <string name="cw_f_service">Dienst</string>
+    <string name="cw_f_sans">Serifenlos</string>
+    <string name="cw_f_serif">Serif</string>
+    <string name="cw_f_mono">Mono</string>
+    <string name="cw_f_condensed">Schmal</string>
+    <string name="cw_text">Textgröße</string>
+    <string name="cw_radius">Eckenradius</string>
+    <string name="cw_thickness">Linienstärke</string>
+    <string name="cw_align">Ausrichtung</string>
+    <string name="cw_left">Links</string>
+    <string name="cw_center">Mitte</string>
+    <string name="cw_reset">Reset-Zeiten</string>
+    <string name="cw_labels">Beschriftungen</string>
+    <string name="cw_tap">Antippen</string>
+    <string name="cw_tap_open">App öffnen</string>
+    <string name="cw_tap_refresh">Aktualisieren</string>
+    <string name="cw_until">bis zum Reset um %1$s</string>
+    <string name="cw_updated">Aktualisiert %1$s</string>
+    <string name="cw_full">Volles Limit</string>
+    <string name="cw_up">Nach oben</string>
+    <string name="cw_down">Nach unten</string>
+    <string name="cw_look">Aussehen</string>
+    <string name="cw_colors">Farben</string>
+    <string name="cw_behavior">Verhalten</string>
+</resources>

@@ -34,7 +34,8 @@
 - **Session and weekly limits** — the 5-hour session, the weekly limit and separate Opus / Sonnet limits, with exact reset times.
 - **Pace forecast** — a tick on every ring and bar shows how much of the window has passed, so you know whether the limit will last until the reset.
 - **Statistics** — usage by day for the last week and a 24-hour session chart, collected on the phone.
-- **8 home-screen widgets** — full, ring, dual rings, mini, countdown, strip, statistics and an all-services overview. Each one adapts to its size and can be customized; live previews in settings show exactly what you are adding.
+- **9 home-screen widgets** — full, ring, dual rings, mini, countdown, strip, statistics, an all-services overview and **Custom**. Each one adapts to its size and can be customized; live previews in settings show exactly what you are adding.
+- **Custom widget** — build your own: pick and reorder blocks (session, week, Opus, Sonnet, countdown, 7-day chart, update time), show limits as rings, bars or big numbers, choose background and accent colors, gradient, outline, font, text size, corner radius and line thickness. On wide widgets the content flows into two columns.
 - **4 Quick Settings tiles** — check your limit without opening anything.
 - **Reset notifications** — when the session is full again, when the week renews, and when you are running low.
 - **Native look per service** — Claude's warm cream and terracotta, or ChatGPT's black and white for Codex. Light and dark themes, edge-to-edge on modern Android.
@@ -135,7 +136,7 @@ Ember is an independent, unofficial project. It is not affiliated with, endorsed
 
 **Ember** показує, скільки ще лишилося лімітів Claude і Codex.
 
-- **Android** — головний екран із кільцем сесії, тижневими лімітами й прогнозом темпу; статистика; 8 віджетів для робочого столу; 4 плитки в швидких налаштуваннях; сповіщення про скидання лімітів; світла й темна теми; 5 мов.
+- **Android** — головний екран із кільцем сесії, тижневими лімітами й прогнозом темпу; статистика; 9 віджетів для робочого столу, зокрема повністю налаштовуваний «Свій»; 4 плитки в швидких налаштуваннях; сповіщення про скидання лімітів; світла й темна теми; 5 мов.
 - **Windows** — число відсотків у треї, панель у стилі Windows 11 і плаваючий значок поверх усіх вікон (4 стилі, розміри, теми, прозорість).
 
 **Як встановити:** завантажте файли з [останнього релізу](../../releases/latest). На Android відкрийте APK. На Windows просто запустіть `.exe`, відкрийте налаштування й натисніть **«Увійти»** біля Claude, увійдіть у вікні браузера, яке відкриється, і закрийте його.

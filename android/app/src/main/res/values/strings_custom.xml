@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wk_custom">Custom</string>
+    <string name="wk_custom_d">Your own: blocks, colors, fonts · any size</string>
+    <string name="widget_custom">Ember · custom</string>
+    <string name="cw_blocks">Blocks</string>
+    <string name="cw_blocks_d">Turn on and reorder what the widget shows</string>
+    <string name="cw_b_header">Header</string>
+    <string name="cw_b_countdown">Countdown</string>
+    <string name="cw_b_chart">7-day chart</string>
+    <string name="cw_b_updated">Update time</string>
+    <string name="cw_style">Limits as</string>
+    <string name="cw_st_rings">Rings</string>
+    <string name="cw_st_bars">Bars</string>
+    <string name="cw_st_numbers">Numbers</string>
+    <string name="cw_bg">Background</string>
+    <string name="cw_opacity">Background opacity</string>
+    <string name="cw_gradient">Gradient</string>
+    <string name="cw_border">Outline</string>
+    <string name="cw_accent">Accent color</string>
+    <string name="cw_font">Font</string>
+    <string name="cw_f_service">Service</string>
+    <string name="cw_f_sans">Sans</string>
+    <string name="cw_f_serif">Serif</string>
+    <string name="cw_f_mono">Mono</string>
+    <string name="cw_f_condensed">Narrow</string>
+    <string name="cw_text">Text size</string>
+    <string name="cw_radius">Corner radius</string>
+    <string name="cw_thickness">Line thickness</string>
+    <string name="cw_align">Alignment</string>
+    <string name="cw_left">Left</string>
+    <string name="cw_center">Center</string>
+    <string name="cw_reset">Reset times</string>
+    <string name="cw_labels">Labels</string>
+    <string name="cw_tap">On tap</string>
+    <string name="cw_tap_open">Open app</string>
+    <string name="cw_tap_refresh">Refresh</string>
+    <string name="cw_until">until reset at %1$s</string>
+    <string name="cw_updated">Updated %1$s</string>
+    <string name="cw_full">Full limit</string>
+    <string name="cw_up">Move up</string>
+    <string name="cw_down">Move down</string>
+    <string name="cw_look">Look</string>
+    <string name="cw_colors">Colors</string>
+    <string name="cw_behavior">Behavior</string>
+</resources>

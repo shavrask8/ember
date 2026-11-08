@@ -110,7 +110,8 @@ object Widgets {
         }
     }
 
-    fun build(c0: Context, kind: WidgetKind, id: Int, refreshing: Boolean = false, override: WidgetCfg? = null): RemoteViews {
+    fun build(c0: Context, kind: WidgetKind, id: Int, refreshing: Boolean = false, override: WidgetCfg? = null, custom: CustomCfg? = null): RemoteViews {
+        if (kind == WidgetKind.CUSTOM) return CustomWidgets.build(c0, id, refreshing, custom ?: override?.let { CustomCfg(provider = it.provider) })
         val c = Lang.wrap(c0)
         val cfg = override ?: WidgetPrefs.get(c, id)
         val p = Provider.of(cfg.provider)
@@ -130,6 +131,7 @@ object Widgets {
             WidgetKind.STRIP -> strip(w)
             WidgetKind.STATS -> stats(w)
             WidgetKind.OVERVIEW -> overview(w)
+            WidgetKind.CUSTOM -> error("custom")
         }
 
         // фон: тема, кути, прозорість

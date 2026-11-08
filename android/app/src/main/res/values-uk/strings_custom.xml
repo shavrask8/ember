@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wk_custom">Свій</string>
+    <string name="wk_custom_d">Ваш власний: блоки, кольори, шрифти · будь-який розмір</string>
+    <string name="widget_custom">Ember · свій</string>
+    <string name="cw_blocks">Блоки</string>
+    <string name="cw_blocks_d">Увімкніть і розставте, що показує віджет</string>
+    <string name="cw_b_header">Заголовок</string>
+    <string name="cw_b_countdown">Зворотний відлік</string>
+    <string name="cw_b_chart">Графік за 7 днів</string>
+    <string name="cw_b_updated">Час оновлення</string>
+    <string name="cw_style">Ліміти як</string>
+    <string name="cw_st_rings">Кільця</string>
+    <string name="cw_st_bars">Смужки</string>
+    <string name="cw_st_numbers">Числа</string>
+    <string name="cw_bg">Фон</string>
+    <string name="cw_opacity">Непрозорість фону</string>
+    <string name="cw_gradient">Градієнт</string>
+    <string name="cw_border">Обведення</string>
+    <string name="cw_accent">Колір акценту</string>
+    <string name="cw_font">Шрифт</string>
+    <string name="cw_f_service">Сервісу</string>
+    <string name="cw_f_sans">Без зарубок</string>
+    <string name="cw_f_serif">Із зарубками</string>
+    <string name="cw_f_mono">Моно</string>
+    <string name="cw_f_condensed">Вузький</string>
+    <string name="cw_text">Розмір тексту</string>
+    <string name="cw_radius">Заокруглення кутів</string>
+    <string name="cw_thickness">Товщина ліній</string>
+    <string name="cw_align">Вирівнювання</string>
+    <string name="cw_left">Ліворуч</string>
+    <string name="cw_center">По центру</string>
+    <string name="cw_reset">Час скидання</string>
+    <string name="cw_labels">Підписи</string>
+    <string name="cw_tap">Дотик</string>
+    <string name="cw_tap_open">Відкрити застосунок</string>
+    <string name="cw_tap_refresh">Оновити</string>
+    <string name="cw_until">до скидання о %1$s</string>
+    <string name="cw_updated">Оновлено о %1$s</string>
+    <string name="cw_full">Ліміт повний</string>
+    <string name="cw_up">Вище</string>
+    <string name="cw_down">Нижче</string>
+    <string name="cw_look">Вигляд</string>
+    <string name="cw_colors">Кольори</string>
+    <string name="cw_behavior">Поведінка</string>
+</resources>

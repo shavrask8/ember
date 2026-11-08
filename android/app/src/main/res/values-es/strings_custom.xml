@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wk_custom">Personalizado</string>
+    <string name="wk_custom_d">Tu propio widget: bloques, colores, fuentes · cualquier tamaño</string>
+    <string name="widget_custom">Ember · personalizado</string>
+    <string name="cw_blocks">Bloques</string>
+    <string name="cw_blocks_d">Activa y ordena lo que muestra el widget</string>
+    <string name="cw_b_header">Encabezado</string>
+    <string name="cw_b_countdown">Cuenta atrás</string>
+    <string name="cw_b_chart">Gráfico de 7 días</string>
+    <string name="cw_b_updated">Hora de actualización</string>
+    <string name="cw_style">Límites como</string>
+    <string name="cw_st_rings">Anillos</string>
+    <string name="cw_st_bars">Barras</string>
+    <string name="cw_st_numbers">Números</string>
+    <string name="cw_bg">Fondo</string>
+    <string name="cw_opacity">Opacidad del fondo</string>
+    <string name="cw_gradient">Degradado</string>
+    <string name="cw_border">Contorno</string>
+    <string name="cw_accent">Color de acento</string>
+    <string name="cw_font">Fuente</string>
+    <string name="cw_f_service">Del servicio</string>
+    <string name="cw_f_sans">Sans</string>
+    <string name="cw_f_serif">Serif</string>
+    <string name="cw_f_mono">Mono</string>
+    <string name="cw_f_condensed">Estrecha</string>
+    <string name="cw_text">Tamaño del texto</string>
+    <string name="cw_radius">Radio de esquinas</string>
+    <string name="cw_thickness">Grosor de líneas</string>
+    <string name="cw_align">Alineación</string>
+    <string name="cw_left">Izquierda</string>
+    <string name="cw_center">Centro</string>
+    <string name="cw_reset">Horas de reinicio</string>
+    <string name="cw_labels">Etiquetas</string>
+    <string name="cw_tap">Al tocar</string>
+    <string name="cw_tap_open">Abrir la app</string>
+    <string name="cw_tap_refresh">Actualizar</string>
+    <string name="cw_until">hasta el reinicio a las %1$s</string>
+    <string name="cw_updated">Actualizado %1$s</string>
+    <string name="cw_full">Límite completo</string>
+    <string name="cw_up">Subir</string>
+    <string name="cw_down">Bajar</string>
+    <string name="cw_look">Aspecto</string>
+    <string name="cw_colors">Colores</string>
+    <string name="cw_behavior">Comportamiento</string>
+</resources>
