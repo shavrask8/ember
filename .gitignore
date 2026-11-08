@@ -1,0 +1,23 @@
+# Android
+android/.gradle/
+android/.kotlin/
+android/build/
+android/app/build/
+android/local.properties
+android/keystore.properties
+android/.idea/
+*.jks
+*.keystore
+*.apk
+*.aab
+
+# Windows
+windows/bin/
+windows/obj/
+out/
+*.user
+.vs/
+
+# misc
+.DS_Store
+Thumbs.db

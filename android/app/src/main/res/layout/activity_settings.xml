@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/cBg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="18dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="-10dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_back"
+                android:tint="?attr/cText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="?attr/titleFont"
+                android:text="@string/settings"
+                android:textColor="?attr/cText"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/languageBox"
+            style="@style/Card"
+            android:paddingTop="4dp" />
+
+        <LinearLayout style="@style/Card">
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/services" />
+            <LinearLayout
+                android:id="@+id/servicesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Card">
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/main_screen" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/main_screen_hint"
+                android:textColor="?attr/cText2"
+                android:textSize="12sp" />
+            <LinearLayout
+                android:id="@+id/modulesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Card">
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/notifications" />
+            <LinearLayout
+                android:id="@+id/notifyList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/n_note"
+                android:textColor="?attr/cText2"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Card">
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/widgets" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/widgets_hint"
+                android:textColor="?attr/cText2"
+                android:textSize="12sp" />
+            <LinearLayout
+                android:id="@+id/widgetsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+            <View style="@style/Divider" />
+            <TextView
+                android:id="@+id/editWidgets"
+                style="@style/LinkBtn"
+                android:layout_marginTop="6dp"
+                android:text="@string/edit_widgets" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Card">
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/quick_settings" />
+            <LinearLayout
+                android:id="@+id/tilesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+            <LinearLayout
+                android:id="@+id/tileProviderBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Card">
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/updates_display" />
+
+            <Switch
+                android:id="@+id/swUsed"
+                style="@style/Toggle"
+                android:text="@string/show_used" />
+
+            <Switch
+                android:id="@+id/swAuto"
+                style="@style/Toggle"
+                android:text="@string/auto_refresh" />
+
+            <LinearLayout
+                android:id="@+id/autoBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/interval"
+                        android:textColor="?attr/cText2"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/autoValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="?attr/titleFont"
+                        android:textColor="?attr/cText"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekInterval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:paddingVertical="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_5m"
+                        android:textColor="?attr/cText2"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/lbl_1h"
+                        android:textColor="?attr/cText2"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/lbl_24h"
+                        android:textColor="?attr/cText2"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/autoNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="?attr/cText2"
+                    android:textSize="12sp" />
+
+                <Switch
+                    android:id="@+id/swWifi"
+                    style="@style/Toggle"
+                    android:text="@string/wifi_only" />
+
+                <Switch
+                    android:id="@+id/swCharging"
+                    style="@style/Toggle"
+                    android:text="@string/charging_only" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/clearHistory"
+                style="@style/LinkBtn"
+                android:layout_marginTop="8dp"
+                android:text="@string/clear_stats" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/settings_footer"
+            android:textColor="?attr/cText2"
+            android:textSize="11sp" />
+    </LinearLayout>
+</ScrollView>

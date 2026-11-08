@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#F0EEE6</color>
+    <color name="surface">#FAF9F5</color>
+    <color name="text">#141413</color>
+    <color name="text2">#73726C</color>
+    <color name="accent">#D97757</color>
+    <color name="track">#E3DFD3</color>
+    <color name="divider">#E3DFD3</color>
+    <color name="danger">#B5463C</color>
+    <color name="good">#4F7D53</color>
+    <color name="warn">#A8691B</color>
+    <color name="on_accent">#FFFFFF</color>
+    <color name="launcher_bg">#D97757</color>
+    <color name="launcher_fg">#FAF9F5</color>
+    <color name="codex_bg">#FFFFFF</color>
+    <color name="codex_surface">#F9F9F9</color>
+    <color name="codex_text">#0D0D0D</color>
+    <color name="codex_text2">#5D5D5D</color>
+    <color name="codex_accent">#0D0D0D</color>
+    <color name="codex_on_accent">#FFFFFF</color>
+    <color name="codex_track">#ECECEC</color>
+    <color name="codex_divider">#E5E5E5</color>
+</resources>

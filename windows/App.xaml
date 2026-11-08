@@ -1,0 +1,346 @@
+<Application x:Class="Ember.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             ShutdownMode="OnExplicitShutdown">
+  <Application.Resources>
+    <ResourceDictionary>
+
+      <!-- кольори підміняються під час запуску (Pal.Into) -->
+      <SolidColorBrush x:Key="Bg" Color="#F4F3EE"/>
+      <SolidColorBrush x:Key="Surface" Color="#FFFFFF"/>
+      <SolidColorBrush x:Key="Border" Color="#E6E3DA"/>
+      <SolidColorBrush x:Key="Text" Color="#1F1E1D"/>
+      <SolidColorBrush x:Key="Text2" Color="#6F6C64"/>
+      <SolidColorBrush x:Key="Accent" Color="#D97757"/>
+      <SolidColorBrush x:Key="OnAccent" Color="#FFFFFF"/>
+      <SolidColorBrush x:Key="Track" Color="#EAE6DC"/>
+      <SolidColorBrush x:Key="SegBg" Color="#EAE7DF"/>
+      <SolidColorBrush x:Key="SegOn" Color="#FFFFFF"/>
+      <SolidColorBrush x:Key="Hover" Color="#0A000000"/>
+      <SolidColorBrush x:Key="Scroll" Color="#33000000"/>
+      <SolidColorBrush x:Key="Danger" Color="#B5463C"/>
+      <SolidColorBrush x:Key="Good" Color="#4F7D53"/>
+      <FontFamily x:Key="NumFont">Georgia</FontFamily>
+
+      <CubicEase x:Key="Ease" EasingMode="EaseOut"/>
+
+      <!-- ===== кнопки ===== -->
+      <Style x:Key="Btn" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Padding" Value="14,6"/>
+        <Setter Property="MinHeight" Value="32"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        <Setter Property="Background" Value="{DynamicResource Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Button">
+              <Grid>
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="8"/>
+                <Border x:Name="ov" Background="{DynamicResource Hover}" CornerRadius="8" Opacity="0"/>
+                <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                  TextElement.Foreground="{TemplateBinding Foreground}"/>
+              </Grid>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="ov" Property="Opacity" Value="1"/></Trigger>
+                <Trigger Property="IsPressed" Value="True"><Setter TargetName="ov" Property="Opacity" Value="1.8"/><Setter Property="Opacity" Value="0.85"/></Trigger>
+                <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.45"/></Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <Style x:Key="AccentBtn" TargetType="Button" BasedOn="{StaticResource Btn}">
+        <Setter Property="Foreground" Value="{DynamicResource OnAccent}"/>
+        <Setter Property="Background" Value="{DynamicResource Accent}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Accent}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+      </Style>
+
+      <Style x:Key="IconBtn" TargetType="Button" BasedOn="{StaticResource Btn}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text2}"/>
+        <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Width" Value="34"/>
+        <Setter Property="Height" Value="34"/>
+      </Style>
+
+      <!-- ===== перемикач ===== -->
+      <Style x:Key="Toggle" TargetType="CheckBox">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="CheckBox">
+              <Grid Width="42" Height="22" Background="Transparent">
+                <Border x:Name="track" CornerRadius="11" BorderThickness="1" BorderBrush="{DynamicResource Text2}" Background="Transparent"/>
+                <Ellipse x:Name="knob" Width="12" Height="12" HorizontalAlignment="Left" Margin="5,0,0,0" Fill="{DynamicResource Text2}">
+                  <Ellipse.RenderTransform><TranslateTransform x:Name="tt"/></Ellipse.RenderTransform>
+                </Ellipse>
+              </Grid>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                  <Setter TargetName="track" Property="Background" Value="{DynamicResource Accent}"/>
+                  <Setter TargetName="track" Property="BorderBrush" Value="{DynamicResource Accent}"/>
+                  <Setter TargetName="knob" Property="Fill" Value="{DynamicResource OnAccent}"/>
+                  <Trigger.EnterActions>
+                    <BeginStoryboard>
+                      <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="tt" Storyboard.TargetProperty="X" To="20" Duration="0:0:0.14" EasingFunction="{StaticResource Ease}"/>
+                      </Storyboard>
+                    </BeginStoryboard>
+                  </Trigger.EnterActions>
+                  <Trigger.ExitActions>
+                    <BeginStoryboard>
+                      <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="tt" Storyboard.TargetProperty="X" To="0" Duration="0:0:0.14" EasingFunction="{StaticResource Ease}"/>
+                      </Storyboard>
+                    </BeginStoryboard>
+                  </Trigger.ExitActions>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                  <Setter TargetName="knob" Property="Width" Value="14"/>
+                  <Setter TargetName="knob" Property="Height" Value="14"/>
+                  <Setter TargetName="knob" Property="Margin" Value="4,0,0,0"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <!-- ===== сегментований вибір ===== -->
+      <Style x:Key="Seg" TargetType="RadioButton">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="12.5"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text2}"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="RadioButton">
+              <Border x:Name="b" CornerRadius="7" Padding="12,5" Margin="1" Background="Transparent" BorderThickness="1" BorderBrush="Transparent">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}"/>
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True"><Setter Property="Foreground" Value="{DynamicResource Text}"/></Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                  <Setter TargetName="b" Property="Background" Value="{DynamicResource SegOn}"/>
+                  <Setter TargetName="b" Property="BorderBrush" Value="{DynamicResource Border}"/>
+                  <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+                  <Setter Property="FontWeight" Value="SemiBold"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <!-- ===== пункт бічного меню ===== -->
+      <Style x:Key="Nav" TargetType="RadioButton">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="13.5"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="RadioButton">
+              <Grid Margin="0,1">
+                <Border x:Name="b" CornerRadius="7" Background="Transparent"/>
+                <Border x:Name="ind" Width="3" Height="16" CornerRadius="1.5" HorizontalAlignment="Left" Background="{DynamicResource Accent}" Visibility="Collapsed"/>
+                <StackPanel Orientation="Horizontal" Margin="14,9,12,9">
+                  <TextBlock Text="{TemplateBinding Tag}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="15" VerticalAlignment="Center"
+                             Foreground="{TemplateBinding Foreground}"/>
+                  <ContentPresenter Margin="14,0,0,0" VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}"/>
+                </StackPanel>
+              </Grid>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="b" Property="Background" Value="{DynamicResource Hover}"/></Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                  <Setter TargetName="b" Property="Background" Value="{DynamicResource SegOn}"/>
+                  <Setter TargetName="ind" Property="Visibility" Value="Visible"/>
+                  <Setter Property="FontWeight" Value="SemiBold"/>
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <!-- ===== слайдер ===== -->
+      <Style x:Key="SldFill" TargetType="RepeatButton">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="RepeatButton">
+              <Border Height="4" CornerRadius="2" Background="{DynamicResource Accent}" VerticalAlignment="Center"/>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style x:Key="SldEmpty" TargetType="RepeatButton">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="RepeatButton">
+              <Border Background="Transparent"/>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style x:Key="SldThumb" TargetType="Thumb">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Thumb">
+              <Grid Width="20" Height="20">
+                <Ellipse Fill="{DynamicResource SegOn}" Stroke="{DynamicResource Border}" StrokeThickness="1"/>
+                <Ellipse x:Name="dot" Width="10" Height="10" Fill="{DynamicResource Accent}"/>
+              </Grid>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="dot" Property="Width" Value="12"/><Setter TargetName="dot" Property="Height" Value="12"/></Trigger>
+                <Trigger Property="IsDragging" Value="True"><Setter TargetName="dot" Property="Width" Value="8"/><Setter TargetName="dot" Property="Height" Value="8"/></Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style x:Key="Sld" TargetType="Slider">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="IsMoveToPointEnabled" Value="True"/>
+        <Setter Property="IsSnapToTickEnabled" Value="True"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Slider">
+              <Grid Height="26" Background="Transparent">
+                <Border Height="4" CornerRadius="2" Background="{DynamicResource Track}" VerticalAlignment="Center" Margin="2,0"/>
+                <Track x:Name="PART_Track">
+                  <Track.DecreaseRepeatButton><RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SldFill}"/></Track.DecreaseRepeatButton>
+                  <Track.IncreaseRepeatButton><RepeatButton Command="Slider.IncreaseLarge" Style="{StaticResource SldEmpty}"/></Track.IncreaseRepeatButton>
+                  <Track.Thumb><Thumb Style="{StaticResource SldThumb}"/></Track.Thumb>
+                </Track>
+              </Grid>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <!-- ===== тонка смуга прокрутки ===== -->
+      <Style TargetType="ScrollBar">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Width" Value="8"/>
+        <Setter Property="MinWidth" Value="8"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="ScrollBar">
+              <Track x:Name="PART_Track" IsDirectionReversed="True" Margin="0,4">
+                <Track.Thumb>
+                  <Thumb>
+                    <Thumb.Template>
+                      <ControlTemplate TargetType="Thumb">
+                        <Border x:Name="t" CornerRadius="2" Width="4" Background="{DynamicResource Scroll}" HorizontalAlignment="Center"/>
+                        <ControlTemplate.Triggers>
+                          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="t" Property="Width" Value="6"/></Trigger>
+                        </ControlTemplate.Triggers>
+                      </ControlTemplate>
+                    </Thumb.Template>
+                  </Thumb>
+                </Track.Thumb>
+              </Track>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <!-- ===== контекстне меню ===== -->
+      <Style TargetType="ContextMenu">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="HasDropShadow" Value="False"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="ContextMenu">
+              <Border Margin="10,6,10,14" Background="{DynamicResource Surface}" BorderBrush="{DynamicResource Border}" BorderThickness="1" CornerRadius="9" Padding="4">
+                <Border.Effect><DropShadowEffect BlurRadius="14" ShadowDepth="3" Direction="270" Opacity="0.22"/></Border.Effect>
+                <ItemsPresenter MinWidth="210"/>
+              </Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style TargetType="MenuItem">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="MenuItem">
+              <Border x:Name="b" CornerRadius="5" Padding="8,7,14,7" Background="Transparent">
+                <Grid>
+                  <Grid.ColumnDefinitions><ColumnDefinition Width="28"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                  <TextBlock x:Name="ic" Text="{TemplateBinding Tag}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="14"
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource Text2}"/>
+                  <TextBlock x:Name="chk" Text="&#xE73E;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="13"
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource Accent}" Visibility="Collapsed"/>
+                  <ContentPresenter Grid.Column="1" ContentSource="Header" VerticalAlignment="Center" Margin="4,0,0,0"/>
+                </Grid>
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsHighlighted" Value="True"><Setter TargetName="b" Property="Background" Value="{DynamicResource Hover}"/></Trigger>
+                <Trigger Property="IsChecked" Value="True"><Setter TargetName="chk" Property="Visibility" Value="Visible"/><Setter TargetName="ic" Property="Visibility" Value="Collapsed"/></Trigger>
+                <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style TargetType="Separator">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Separator">
+              <Border Height="1" Margin="6,4" Background="{DynamicResource Border}"/>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+      <!-- ===== підказка ===== -->
+      <Style TargetType="ToolTip">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="HasDropShadow" Value="False"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="ToolTip">
+              <Border Margin="8,4,8,12" Background="{DynamicResource Surface}" BorderBrush="{DynamicResource Border}" BorderThickness="1" CornerRadius="7" Padding="10,6">
+                <Border.Effect><DropShadowEffect BlurRadius="10" ShadowDepth="2" Direction="270" Opacity="0.18"/></Border.Effect>
+                <ContentPresenter/>
+              </Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

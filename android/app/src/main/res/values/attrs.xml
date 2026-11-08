@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Кольори інтерфейсу, що залежать від обраного сервісу -->
+    <attr name="cBg" format="color|reference" />
+    <attr name="cSurface" format="color|reference" />
+    <attr name="cText" format="color|reference" />
+    <attr name="cText2" format="color|reference" />
+    <attr name="cAccent" format="color|reference" />
+    <attr name="cOnAccent" format="color|reference" />
+    <attr name="cTrack" format="color|reference" />
+    <attr name="cDivider" format="color|reference" />
+    <attr name="titleFont" format="string" />
+</resources>

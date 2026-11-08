@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Стиль Claude — за замовчуванням для всіх сервісів -->
+    <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
+        <item name="cBg">@color/bg</item>
+        <item name="cSurface">@color/surface</item>
+        <item name="cText">@color/text</item>
+        <item name="cText2">@color/text2</item>
+        <item name="cAccent">@color/accent</item>
+        <item name="cOnAccent">@color/on_accent</item>
+        <item name="cTrack">@color/track</item>
+        <item name="cDivider">@color/divider</item>
+        <item name="titleFont">serif</item>
+        <item name="android:colorPrimary">@color/accent</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:colorControlActivated">@color/accent</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text2</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:alertDialogTheme">@style/DialogTheme</item>
+    </style>
+
+    <!-- Стиль Codex / ChatGPT: чорно-білий, без засічок -->
+    <style name="AppTheme.Codex" parent="android:Theme.Material.NoActionBar">
+        <item name="cBg">@color/codex_bg</item>
+        <item name="cSurface">@color/codex_surface</item>
+        <item name="cText">@color/codex_text</item>
+        <item name="cText2">@color/codex_text2</item>
+        <item name="cAccent">@color/codex_accent</item>
+        <item name="cOnAccent">@color/codex_on_accent</item>
+        <item name="cTrack">@color/codex_track</item>
+        <item name="cDivider">@color/codex_divider</item>
+        <item name="titleFont">sans-serif-medium</item>
+        <item name="android:colorPrimary">@color/codex_accent</item>
+        <item name="android:colorAccent">@color/codex_accent</item>
+        <item name="android:colorControlActivated">@color/codex_accent</item>
+        <item name="android:windowBackground">@color/codex_bg</item>
+        <item name="android:textColorPrimary">@color/codex_text</item>
+        <item name="android:textColorSecondary">@color/codex_text2</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:alertDialogTheme">@style/DialogTheme</item>
+    </style>
+
+    <style name="DialogTheme" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:colorAccent">?attr/cAccent</item>
+    </style>
+</resources>

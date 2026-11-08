@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" formatted="false">Ember</string>
+    <string name="ob_subtitle" formatted="false">Ліміти ШІ</string>
+    <string name="refresh" formatted="false">Оновити</string>
+    <string name="settings" formatted="false">Налаштування</string>
+    <string name="back" formatted="false">Назад</string>
+    <string name="cancel" formatted="false">Скасувати</string>
+    <string name="save" formatted="false">Зберегти</string>
+    <string name="later" formatted="false">Пізніше</string>
+    <string name="w_used" formatted="false">використано</string>
+    <string name="w_left" formatted="false">залишилось</string>
+    <string name="no_data" formatted="false">немає даних</string>
+    <string name="no_data_cap" formatted="false">Немає даних</string>
+    <string name="sign_in_app" formatted="false">увійдіть у застосунку</string>
+    <string name="updating" formatted="false">оновлення…</string>
+    <string name="updating_cap" formatted="false">Оновлення…</string>
+    <string name="w_error" formatted="false">помилка</string>
+    <string name="usage_limits" formatted="false">Ліміти використання</string>
+    <string name="at_time">о %s</string>
+    <string name="tomorrow_at">завтра о %s</string>
+    <string name="dur_dh">%1$d дн %2$d год</string>
+    <string name="dur_hm">%1$d год %2$d хв</string>
+    <string name="dur_m">%d хв</string>
+    <string name="dur_h">%d год</string>
+    <string name="reset_not_started" formatted="false">Відлік почнеться з першого повідомлення</string>
+    <string name="reset_done" formatted="false">Ліміт уже оновився</string>
+    <string name="reset_line">Скидання %1$s · через %2$s</string>
+    <string name="full_limit" formatted="false">повний ліміт</string>
+    <string name="until_time">до %s</string>
+    <string name="pace_exhausted">Ліміт вичерпано до %s</string>
+    <string name="pace_unused" formatted="false">Ліміт ще не використовувався</string>
+    <string name="pace_runs_out">За цим темпом закінчиться о %s</string>
+    <string name="pace_enough" formatted="false">За цим темпом вистачить до скидання</string>
+    <string name="pace_runs_out_short">закінчиться о %s</string>
+    <string name="pace_enough_short" formatted="false">вистачить до скидання</string>
+    <string name="week_pace">Використано %1$d%% ліміту за %2$d%% тижня</string>
+    <string name="chart_empty_bars" formatted="false">Ще немає витрат за цей період</string>
+    <string name="chart_empty_line" formatted="false">Дані з’являться після кількох оновлень</string>
+    <string name="now" formatted="false">зараз</string>
+    <string name="p_claude_session" formatted="false">Поточна сесія</string>
+    <string name="p_codex_session" formatted="false">Ліміт на 5 годин</string>
+    <string name="session" formatted="false">Сесія</string>
+    <string name="h5" formatted="false">5 год</string>
+    <string name="week" formatted="false">Тиждень</string>
+    <string name="all_models" formatted="false">Усі моделі</string>
+    <string name="p_claude_note" formatted="false">Підписка Claude Pro / Max</string>
+    <string name="p_codex_note" formatted="false">Підписка ChatGPT із Codex · експериментально</string>
+    <string name="err_no_conn">Немає з’єднання з %s</string>
+    <string name="err_org" formatted="false">Організацію не знайдено</string>
+    <string name="err_session" formatted="false">Сесія недійсна — увійдіть знову</string>
+    <string name="err_rate" formatted="false">Забагато запитів, спробуйте пізніше</string>
+    <string name="err_unexpected" formatted="false">Неочікувана відповідь сервера</string>
+    <string name="err_cf" formatted="false">Cloudflare просить перевірку — увійдіть знову</string>
+    <string name="err_chatgpt" formatted="false">Сесія ChatGPT недійсна — увійдіть знову</string>
+    <string name="err_codex_na" formatted="false">Codex недоступний для цього акаунта</string>
+    <string name="err_browser" formatted="false">Не вдалося запустити браузер</string>
+    <string name="tile_session" formatted="false">Ліміт сесії</string>
+    <string name="tile_week" formatted="false">Тижневий ліміт</string>
+    <string name="tile_both" formatted="false">Сесія й тиждень</string>
+    <string name="tile_pace" formatted="false">Темп витрати</string>
+    <string name="tk_both" formatted="false">Обидва</string>
+    <string name="tk_both_d" formatted="false">Сесія й тиждень в одній плитці</string>
+    <string name="tk_pace" formatted="false">Темп</string>
+    <string name="tk_pace_d" formatted="false">Чи вистачить ліміту до скидання</string>
+    <string name="week_short" formatted="false">тиж.</string>
+    <string name="tile_both_sub">сесія · тиждень (%s)</string>
+    <string name="tile_pace_label">%s · темп</string>
+    <string name="wk_full" formatted="false">Повний</string>
+    <string name="wk_full_d" formatted="false">Сесія й тиждень зі смугами · 4×2</string>
+    <string name="wk_ring" formatted="false">Кільце</string>
+    <string name="wk_ring_d" formatted="false">Один ліміт у вигляді кільця · 2×2</string>
+    <string name="wk_strip" formatted="false">Смужка</string>
+    <string name="wk_strip_d" formatted="false">Компактний рядок · 4×1</string>
+    <string name="wk_stats" formatted="false">Статистика</string>
+    <string name="wk_stats_d" formatted="false">Витрата по днях за тиждень · 4×2</string>
+    <string name="widget_label" formatted="false">Ember · повний</string>
+    <string name="widget_ring" formatted="false">Ember · кільце</string>
+    <string name="widget_strip" formatted="false">Ember · смужка</string>
+    <string name="widget_stats" formatted="false">Ember · статистика</string>
+    <string name="widget_desc" formatted="false">Залишок сесії та тижневого ліміту</string>
+    <string name="w_session_5h" formatted="false">Сесія · 5 год</string>
+    <string name="w_limit_5h" formatted="false">Ліміт · 5 год</string>
+    <string name="w_stats" formatted="false">· статистика</string>
+    <string name="w_today_l" formatted="false">тижня сьогодні</string>
+    <string name="w_sess_l">сесія · %s</string>
+    <string name="w_week_l">тиждень · %s</string>
+    <string name="wc_title">Віджет «%s»</string>
+    <string name="service" formatted="false">Сервіс</string>
+    <string name="limit" formatted="false">Ліміт</string>
+    <string name="show" formatted="false">Показувати</string>
+    <string name="opt_auto" formatted="false">Авто</string>
+    <string name="opt_left" formatted="false">Залишок</string>
+    <string name="opt_used" formatted="false">Використано</string>
+    <string name="theme" formatted="false">Тема</string>
+    <string name="th_light" formatted="false">Світла</string>
+    <string name="th_dark" formatted="false">Темна</string>
+    <string name="th_accent" formatted="false">Акцент</string>
+    <string name="background" formatted="false">Фон</string>
+    <string name="show_reset" formatted="false">Показувати час скидання</string>
+    <string name="login_hint">Увійдіть до %s. Вікно закриється саме після входу.</string>
+    <string name="ob_text" formatted="false">Оберіть сервіс, ліміти якого хочете відстежувати. Застосунок підлаштує свій вигляд під нього. Інші сервіси можна додати пізніше в налаштуваннях.</string>
+    <string name="sign_in_settings" formatted="false">Увійдіть у налаштуваннях ⚙</string>
+    <string name="updated_at">Оновлено о %s</string>
+    <string name="not_signed" formatted="false">вхід не виконано</string>
+    <string name="tap_refresh" formatted="false">Натисніть ⟳, щоб оновити</string>
+    <string name="sign_in_to">Увійдіть до %s у налаштуваннях</string>
+    <string name="reset_lbl" formatted="false">скидання</string>
+    <string name="until_reset_lbl" formatted="false">до скидання</string>
+    <string name="st_sessions" formatted="false">сесій із використанням</string>
+    <string name="st_avg" formatted="false">середній пік сесії</string>
+    <string name="st_maxday" formatted="false">тижня за найактивніший день</string>
+    <string name="st_since">Статистика збирається на телефоні з %s. Торкніться графіка, щоб побачити значення.</string>
+    <string name="st_none" formatted="false">Статистика почне збиратися після першого оновлення.</string>
+    <string name="egg_title" formatted="false">🤫 Секретне повідомлення</string>
+    <string name="egg_ok" formatted="false">Згоден</string>
+    <string name="hint_ring" formatted="false">Риска на кільці — скільки часу сесії минуло</string>
+    <string name="weekly_limits" formatted="false">Тижневі ліміти</string>
+    <string name="hint_bar" formatted="false">Риска на смузі — скільки часу тижня минуло</string>
+    <string name="stats_7d" formatted="false">Статистика · 7 днів</string>
+    <string name="chart_days" formatted="false">Витрата тижневого ліміту по днях</string>
+    <string name="chart_24h" formatted="false">Використання сесії за 24 години</string>
+    <string name="footer_main" formatted="false">Більше блоків — у налаштуваннях ⚙\nНеофіційний застосунок.</string>
+    <string name="services" formatted="false">Сервіси</string>
+    <string name="main_screen" formatted="false">Головний екран</string>
+    <string name="main_screen_hint" formatted="false">Увімкніть блоки, які хочете бачити.</string>
+    <string name="widgets" formatted="false">Віджети</string>
+    <string name="edit_widgets" formatted="false">✎  Редагувати розміщені віджети</string>
+    <string name="quick_settings" formatted="false">Швидкі налаштування</string>
+    <string name="updates_display" formatted="false">Оновлення та відображення</string>
+    <string name="show_used" formatted="false">Показувати використане, а не залишок</string>
+    <string name="auto_refresh" formatted="false">Автооновлення у фоні</string>
+    <string name="interval" formatted="false">Інтервал</string>
+    <string name="lbl_5m" formatted="false">5 хв</string>
+    <string name="lbl_1h" formatted="false">1 год</string>
+    <string name="lbl_24h" formatted="false">24 год</string>
+    <string name="wifi_only" formatted="false">Лише через Wi‑Fi</string>
+    <string name="charging_only" formatted="false">Лише під час заряджання</string>
+    <string name="clear_stats" formatted="false">Очистити статистику</string>
+    <string name="settings_footer" formatted="false">Ember · неофіційний застосунок.\nДані беруться з ваших облікових записів,\nстатистика зберігається лише на цьому телефоні.</string>
+    <string name="language" formatted="false">Мова</string>
+    <string name="lang_system" formatted="false">Як у системі</string>
+    <string name="connected" formatted="false">Підключено</string>
+    <string name="not_connected" formatted="false">Не підключено</string>
+    <string name="sign_in" formatted="false">Увійти</string>
+    <string name="sign_in_again" formatted="false">Увійти знову</string>
+    <string name="sign_out" formatted="false">Вийти</string>
+    <string name="manual_key" formatted="false">Ключ вручну</string>
+    <string name="sign_out_q">Вийти з %s?</string>
+    <string name="sign_out_msg" formatted="false">Дані входу буде видалено з телефона.</string>
+    <string name="paste_title" formatted="false">Ключ сесії Claude</string>
+    <string name="paste_msg" formatted="false">На комп’ютері відкрийте claude.ai → F12 → Application → Cookies → https://claude.ai і скопіюйте значення sessionKey.</string>
+    <string name="mod_details" formatted="false">Деталі сесії</string>
+    <string name="mod_details_d" formatted="false">Час скидання й скільки лишилось — окремими плитками</string>
+    <string name="mod_pace" formatted="false">Прогноз темпу</string>
+    <string name="mod_pace_d" formatted="false">Чи вистачить ліміту до скидання, риски часу</string>
+    <string name="mod_models" formatted="false">Opus і Sonnet окремо</string>
+    <string name="mod_models_d" formatted="false">Тижневі ліміти окремих моделей (Claude)</string>
+    <string name="mod_stats_d" formatted="false">Графіки й показники за 7 днів</string>
+    <string name="add" formatted="false">+ Додати</string>
+    <string name="add_shade" formatted="false">+ Додати в шторку</string>
+    <string name="widget_off">Віджет «%s» вимкнено й прибрано з екрана</string>
+    <string name="widget_manual">Довге натискання на робочому столі → Віджети → «%s»</string>
+    <string name="no_widgets" formatted="false">Ще немає розміщених віджетів</string>
+    <string name="which_widget" formatted="false">Який віджет редагувати?</string>
+    <string name="tile_off">Плитку «%s» прибрано</string>
+    <string name="tile_service" formatted="false">Сервіс у плитках</string>
+    <string name="tile_exists" formatted="false">Ця плитка вже є у шторці</string>
+    <string name="tile_manual">Відкрийте шторку → ✎ → перетягніть плитку «%s»</string>
+    <string name="signed_in" formatted="false">Вхід виконано</string>
+    <string name="every">кожні %s</string>
+    <string name="note_fast" formatted="false">Дуже часто: більше витрата батареї. Android може відкладати оновлення в режимі сну.</string>
+    <string name="note_good" formatted="false">Частіше оновлення — точніша статистика.</string>
+    <string name="note_mid" formatted="false">Збалансований режим.</string>
+    <string name="note_rare" formatted="false">Рідко: плитки й віджети можуть показувати застарілі дані.</string>
+    <string name="clear_q" formatted="false">Очистити статистику?</string>
+    <string name="clear_msg" formatted="false">Уся накопичена історія використання буде видалена.</string>
+    <string name="clear" formatted="false">Очистити</string>
+    <string name="cleared" formatted="false">Статистику очищено</string>
+    <string name="wk_mini" formatted="false">Міні</string>
+    <string name="wk_mini_d" formatted="false">Лише число · 1×1</string>
+    <string name="wk_dual" formatted="false">Два кільця</string>
+    <string name="wk_dual_d" formatted="false">Сесія й тиждень кільцями · 3×2</string>
+    <string name="wk_timer" formatted="false">Таймер</string>
+    <string name="wk_timer_d" formatted="false">Час до скидання сесії · 2×1</string>
+    <string name="wk_overview" formatted="false">Огляд</string>
+    <string name="wk_overview_d" formatted="false">Усі підключені сервіси · 4×2</string>
+    <string name="widget_mini" formatted="false">Ember · міні</string>
+    <string name="widget_dual" formatted="false">Ember · два кільця</string>
+    <string name="widget_timer" formatted="false">Ember · таймер</string>
+    <string name="widget_overview" formatted="false">Ember · огляд</string>
+    <string name="timer_left" formatted="false">до скидання сесії</string>
+    <string name="accent" formatted="false">Колір акценту</string>
+    <string name="ac_service" formatted="false">Сервісу</string>
+    <string name="ac_terracotta" formatted="false">Теракота</string>
+    <string name="ac_blue" formatted="false">Синій</string>
+    <string name="ac_green" formatted="false">Зелений</string>
+    <string name="ac_purple" formatted="false">Фіолет</string>
+    <string name="ac_pink" formatted="false">Рожевий</string>
+    <string name="text_size" formatted="false">Розмір тексту</string>
+    <string name="ts_s" formatted="false">Малий</string>
+    <string name="ts_m" formatted="false">Середній</string>
+    <string name="ts_l" formatted="false">Великий</string>
+    <string name="corners" formatted="false">Кути</string>
+    <string name="c_square" formatted="false">Прямі</string>
+    <string name="c_soft" formatted="false">М’які</string>
+    <string name="c_round" formatted="false">Круглі</string>
+    <string name="c_max" formatted="false">Макс</string>
+    <string name="show_header" formatted="false">Показувати заголовок</string>
+    <string name="pv_reset_s" formatted="false">Скидання о 20:00 · через 2 год 16 хв</string>
+    <string name="pv_reset_w" formatted="false">Скидання 15 лист. · через 6 дн 18 год</string>
+    <string name="pv_timer" formatted="false">2 год 16 хв</string>
+    <string name="pv_ov1">Тиждень 88% · до 20:00</string>
+    <string name="pv_ov2">Тиждень 64% · до 21:30</string>
+    <string name="widgets_hint" formatted="false">Так виглядає кожен віджет з вашими даними. Натисніть «Додати», щоб розмістити його на екрані; довге натискання на віджет — налаштування.</string>
+    <string name="notifications" formatted="false">Сповіщення</string>
+    <string name="n_session" formatted="false">Скидання ліміту сесії</string>
+    <string name="n_session_d" formatted="false">Коли 5-годинний ліміт знову повний</string>
+    <string name="n_week" formatted="false">Скидання тижневого ліміту</string>
+    <string name="n_week_d" formatted="false">Коли тижневий ліміт оновився</string>
+    <string name="n_low" formatted="false">Мало ліміту</string>
+    <string name="n_low_d">Попередити, коли в сесії залишилось ≤ 10%</string>
+    <string name="n_note" formatted="false">Через енергозбереження сповіщення можуть приходити з невеликою затримкою.</string>
+    <string name="n_denied" formatted="false">Дозвольте сповіщення для Ember у налаштуваннях Android</string>
+    <string name="ch_resets" formatted="false">Скидання лімітів</string>
+    <string name="ch_low" formatted="false">Попередження про ліміт</string>
+    <string name="nt_session_t">%s: ліміт сесії знову повний</string>
+    <string name="nt_session_b">Знову доступно 100% — можна працювати.</string>
+    <string name="nt_week_t">%s: тижневий ліміт оновився</string>
+    <string name="nt_week_b" formatted="false">Новий тиждень — повний ліміт.</string>
+    <string name="nt_low_t">%1$s: залишилось %2$d%% ліміту сесії</string>
+    <string name="nt_low_b">Скидання %s</string>
+    <plurals name="st_hit">
+        <item quantity="one">раз вичерпано ліміт</item>
+        <item quantity="few">рази вичерпано ліміт</item>
+        <item quantity="many">разів вичерпано ліміт</item>
+        <item quantity="other">разу вичерпано ліміт</item>
+    </plurals>
+</resources>

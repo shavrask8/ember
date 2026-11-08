@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" formatted="false">Ember</string>
+    <string name="ob_subtitle" formatted="false">Límites de IA</string>
+    <string name="refresh" formatted="false">Actualizar</string>
+    <string name="settings" formatted="false">Ajustes</string>
+    <string name="back" formatted="false">Atrás</string>
+    <string name="cancel" formatted="false">Cancelar</string>
+    <string name="save" formatted="false">Guardar</string>
+    <string name="later" formatted="false">Más tarde</string>
+    <string name="w_used" formatted="false">usado</string>
+    <string name="w_left" formatted="false">restante</string>
+    <string name="no_data" formatted="false">sin datos</string>
+    <string name="no_data_cap" formatted="false">Sin datos</string>
+    <string name="sign_in_app" formatted="false">inicia sesión en la app</string>
+    <string name="updating" formatted="false">actualizando…</string>
+    <string name="updating_cap" formatted="false">Actualizando…</string>
+    <string name="w_error" formatted="false">error</string>
+    <string name="usage_limits" formatted="false">Límites de uso</string>
+    <string name="at_time">a las %s</string>
+    <string name="tomorrow_at">mañana a las %s</string>
+    <string name="dur_dh">%1$d d %2$d h</string>
+    <string name="dur_hm">%1$d h %2$d min</string>
+    <string name="dur_m">%d min</string>
+    <string name="dur_h">%d h</string>
+    <string name="reset_not_started" formatted="false">La cuenta empieza con tu primer mensaje</string>
+    <string name="reset_done" formatted="false">El límite ya se ha restablecido</string>
+    <string name="reset_line">Se reinicia %1$s · en %2$s</string>
+    <string name="full_limit" formatted="false">límite completo</string>
+    <string name="until_time">hasta %s</string>
+    <string name="pace_exhausted">Límite agotado hasta las %s</string>
+    <string name="pace_unused" formatted="false">Aún no se ha usado el límite</string>
+    <string name="pace_runs_out">A este ritmo se agotará a las %s</string>
+    <string name="pace_enough" formatted="false">A este ritmo durará hasta el reinicio</string>
+    <string name="pace_runs_out_short">se agota a las %s</string>
+    <string name="pace_enough_short" formatted="false">dura hasta el reinicio</string>
+    <string name="week_pace">Usado el %1$d%% del límite en el %2$d%% de la semana</string>
+    <string name="chart_empty_bars" formatted="false">Aún no hay uso en este periodo</string>
+    <string name="chart_empty_line" formatted="false">Los datos aparecerán tras varias actualizaciones</string>
+    <string name="now" formatted="false">ahora</string>
+    <string name="p_claude_session" formatted="false">Sesión actual</string>
+    <string name="p_codex_session" formatted="false">Límite de 5 horas</string>
+    <string name="session" formatted="false">Sesión</string>
+    <string name="h5" formatted="false">5 h</string>
+    <string name="week" formatted="false">Semana</string>
+    <string name="all_models" formatted="false">Todos los modelos</string>
+    <string name="p_claude_note" formatted="false">Suscripción Claude Pro / Max</string>
+    <string name="p_codex_note" formatted="false">Suscripción de ChatGPT con Codex · experimental</string>
+    <string name="err_no_conn">Sin conexión con %s</string>
+    <string name="err_org" formatted="false">Organización no encontrada</string>
+    <string name="err_session" formatted="false">Sesión caducada: vuelve a iniciar sesión</string>
+    <string name="err_rate" formatted="false">Demasiadas solicitudes, inténtalo más tarde</string>
+    <string name="err_unexpected" formatted="false">Respuesta inesperada del servidor</string>
+    <string name="err_cf" formatted="false">Cloudflare pide verificación: vuelve a iniciar sesión</string>
+    <string name="err_chatgpt" formatted="false">Sesión de ChatGPT caducada: vuelve a iniciar sesión</string>
+    <string name="err_codex_na" formatted="false">Codex no está disponible para esta cuenta</string>
+    <string name="err_browser" formatted="false">No se pudo iniciar el navegador</string>
+    <string name="tile_session" formatted="false">Límite de sesión</string>
+    <string name="tile_week" formatted="false">Límite semanal</string>
+    <string name="tile_both" formatted="false">Sesión y semana</string>
+    <string name="tile_pace" formatted="false">Ritmo de uso</string>
+    <string name="tk_both" formatted="false">Ambos</string>
+    <string name="tk_both_d" formatted="false">Sesión y semana en un mosaico</string>
+    <string name="tk_pace" formatted="false">Ritmo</string>
+    <string name="tk_pace_d" formatted="false">Si el límite durará hasta el reinicio</string>
+    <string name="week_short" formatted="false">sem.</string>
+    <string name="tile_both_sub">sesión · semana (%s)</string>
+    <string name="tile_pace_label">%s · ritmo</string>
+    <string name="wk_full" formatted="false">Completo</string>
+    <string name="wk_full_d" formatted="false">Sesión y semana con barras · 4×2</string>
+    <string name="wk_ring" formatted="false">Anillo</string>
+    <string name="wk_ring_d" formatted="false">Un límite como anillo · 2×2</string>
+    <string name="wk_strip" formatted="false">Barra</string>
+    <string name="wk_strip_d" formatted="false">Fila compacta · 4×1</string>
+    <string name="wk_stats" formatted="false">Estadísticas</string>
+    <string name="wk_stats_d" formatted="false">Uso diario de la semana · 4×2</string>
+    <string name="widget_label" formatted="false">Ember · completo</string>
+    <string name="widget_ring" formatted="false">Ember · anillo</string>
+    <string name="widget_strip" formatted="false">Ember · barra</string>
+    <string name="widget_stats" formatted="false">Ember · estadísticas</string>
+    <string name="widget_desc" formatted="false">Límite restante de sesión y semana</string>
+    <string name="w_session_5h" formatted="false">Sesión · 5 h</string>
+    <string name="w_limit_5h" formatted="false">Límite · 5 h</string>
+    <string name="w_stats" formatted="false">· estadísticas</string>
+    <string name="w_today_l" formatted="false">de la semana hoy</string>
+    <string name="w_sess_l">sesión · %s</string>
+    <string name="w_week_l">semana · %s</string>
+    <string name="wc_title">Widget «%s»</string>
+    <string name="service" formatted="false">Servicio</string>
+    <string name="limit" formatted="false">Límite</string>
+    <string name="show" formatted="false">Mostrar</string>
+    <string name="opt_auto" formatted="false">Auto</string>
+    <string name="opt_left" formatted="false">Restante</string>
+    <string name="opt_used" formatted="false">Usado</string>
+    <string name="theme" formatted="false">Tema</string>
+    <string name="th_light" formatted="false">Claro</string>
+    <string name="th_dark" formatted="false">Oscuro</string>
+    <string name="th_accent" formatted="false">Acento</string>
+    <string name="background" formatted="false">Fondo</string>
+    <string name="show_reset" formatted="false">Mostrar hora de reinicio</string>
+    <string name="login_hint">Inicia sesión en %s. La ventana se cerrará sola al terminar.</string>
+    <string name="ob_text" formatted="false">Elige el servicio cuyos límites quieres seguir. La app adaptará su aspecto a él. Puedes añadir otros servicios más tarde en ajustes.</string>
+    <string name="sign_in_settings" formatted="false">Inicia sesión en ajustes ⚙</string>
+    <string name="updated_at">Actualizado a las %s</string>
+    <string name="not_signed" formatted="false">sin sesión</string>
+    <string name="tap_refresh" formatted="false">Toca ⟳ para actualizar</string>
+    <string name="sign_in_to">Inicia sesión en %s desde ajustes</string>
+    <string name="reset_lbl" formatted="false">reinicio</string>
+    <string name="until_reset_lbl" formatted="false">hasta el reinicio</string>
+    <string name="st_sessions" formatted="false">sesiones con uso</string>
+    <string name="st_avg" formatted="false">pico medio de sesión</string>
+    <string name="st_maxday" formatted="false">de la semana en el día más activo</string>
+    <string name="st_since">Las estadísticas se recopilan en este teléfono desde %s. Toca un gráfico para ver los valores.</string>
+    <string name="st_none" formatted="false">Las estadísticas empezarán tras la primera actualización.</string>
+    <string name="egg_title" formatted="false">🤫 Mensaje secreto</string>
+    <string name="egg_ok" formatted="false">De acuerdo</string>
+    <string name="hint_ring" formatted="false">La marca del anillo indica cuánto ha pasado de la sesión</string>
+    <string name="weekly_limits" formatted="false">Límites semanales</string>
+    <string name="hint_bar" formatted="false">La marca de la barra indica cuánto ha pasado de la semana</string>
+    <string name="stats_7d" formatted="false">Estadísticas · 7 días</string>
+    <string name="chart_days" formatted="false">Uso del límite semanal por día</string>
+    <string name="chart_24h" formatted="false">Uso de la sesión en 24 horas</string>
+    <string name="footer_main" formatted="false">Más bloques en ajustes ⚙\nApp no oficial.</string>
+    <string name="services" formatted="false">Servicios</string>
+    <string name="main_screen" formatted="false">Pantalla principal</string>
+    <string name="main_screen_hint" formatted="false">Activa los bloques que quieras ver.</string>
+    <string name="widgets" formatted="false">Widgets</string>
+    <string name="edit_widgets" formatted="false">✎  Editar widgets colocados</string>
+    <string name="quick_settings" formatted="false">Ajustes rápidos</string>
+    <string name="updates_display" formatted="false">Actualización y visualización</string>
+    <string name="show_used" formatted="false">Mostrar lo usado en vez de lo restante</string>
+    <string name="auto_refresh" formatted="false">Actualización automática en segundo plano</string>
+    <string name="interval" formatted="false">Intervalo</string>
+    <string name="lbl_5m" formatted="false">5 min</string>
+    <string name="lbl_1h" formatted="false">1 h</string>
+    <string name="lbl_24h" formatted="false">24 h</string>
+    <string name="wifi_only" formatted="false">Solo con Wi‑Fi</string>
+    <string name="charging_only" formatted="false">Solo mientras carga</string>
+    <string name="clear_stats" formatted="false">Borrar estadísticas</string>
+    <string name="settings_footer" formatted="false">Ember · app no oficial.\nLos datos vienen de tus cuentas;\nlas estadísticas se quedan en este teléfono.</string>
+    <string name="language" formatted="false">Idioma</string>
+    <string name="lang_system" formatted="false">Idioma del sistema</string>
+    <string name="connected" formatted="false">Conectado</string>
+    <string name="not_connected" formatted="false">No conectado</string>
+    <string name="sign_in" formatted="false">Iniciar sesión</string>
+    <string name="sign_in_again" formatted="false">Volver a entrar</string>
+    <string name="sign_out" formatted="false">Cerrar sesión</string>
+    <string name="manual_key" formatted="false">Clave manual</string>
+    <string name="sign_out_q">¿Cerrar sesión en %s?</string>
+    <string name="sign_out_msg" formatted="false">Los datos de inicio de sesión se eliminarán del teléfono.</string>
+    <string name="paste_title" formatted="false">Clave de sesión de Claude</string>
+    <string name="paste_msg" formatted="false">En un ordenador abre claude.ai → F12 → Application → Cookies → https://claude.ai y copia el valor de sessionKey.</string>
+    <string name="mod_details" formatted="false">Detalles de sesión</string>
+    <string name="mod_details_d" formatted="false">Hora de reinicio y tiempo restante en mosaicos</string>
+    <string name="mod_pace" formatted="false">Previsión de ritmo</string>
+    <string name="mod_pace_d" formatted="false">Si el límite durará hasta el reinicio, marcas de tiempo</string>
+    <string name="mod_models" formatted="false">Opus y Sonnet por separado</string>
+    <string name="mod_models_d" formatted="false">Límites semanales de cada modelo (Claude)</string>
+    <string name="mod_stats_d" formatted="false">Gráficos y cifras de 7 días</string>
+    <string name="add" formatted="false">+ Añadir</string>
+    <string name="add_shade" formatted="false">+ Añadir a ajustes rápidos</string>
+    <string name="widget_off">Widget «%s» desactivado y eliminado</string>
+    <string name="widget_manual">Mantén pulsada la pantalla de inicio → Widgets → «%s»</string>
+    <string name="no_widgets" formatted="false">Aún no hay widgets colocados</string>
+    <string name="which_widget" formatted="false">¿Qué widget editar?</string>
+    <string name="tile_off">Mosaico «%s» eliminado</string>
+    <string name="tile_service" formatted="false">Servicio en mosaicos</string>
+    <string name="tile_exists" formatted="false">Este mosaico ya está en ajustes rápidos</string>
+    <string name="tile_manual">Abre ajustes rápidos → ✎ → arrastra el mosaico «%s»</string>
+    <string name="signed_in" formatted="false">Sesión iniciada</string>
+    <string name="every">cada %s</string>
+    <string name="note_fast" formatted="false">Muy frecuente: más consumo de batería. Android puede retrasar las actualizaciones en reposo.</string>
+    <string name="note_good" formatted="false">Más actualizaciones, estadísticas más precisas.</string>
+    <string name="note_mid" formatted="false">Modo equilibrado.</string>
+    <string name="note_rare" formatted="false">Poco frecuente: los mosaicos y widgets pueden mostrar datos antiguos.</string>
+    <string name="clear_q" formatted="false">¿Borrar estadísticas?</string>
+    <string name="clear_msg" formatted="false">Se eliminará todo el historial de uso.</string>
+    <string name="clear" formatted="false">Borrar</string>
+    <string name="cleared" formatted="false">Estadísticas borradas</string>
+    <string name="wk_mini" formatted="false">Mini</string>
+    <string name="wk_mini_d" formatted="false">Solo el número · 1×1</string>
+    <string name="wk_dual" formatted="false">Doble anillo</string>
+    <string name="wk_dual_d" formatted="false">Sesión y semana en anillos · 3×2</string>
+    <string name="wk_timer" formatted="false">Cuenta atrás</string>
+    <string name="wk_timer_d" formatted="false">Tiempo hasta reiniciar la sesión · 2×1</string>
+    <string name="wk_overview" formatted="false">Resumen</string>
+    <string name="wk_overview_d" formatted="false">Todos los servicios conectados · 4×2</string>
+    <string name="widget_mini" formatted="false">Ember · mini</string>
+    <string name="widget_dual" formatted="false">Ember · doble anillo</string>
+    <string name="widget_timer" formatted="false">Ember · cuenta atrás</string>
+    <string name="widget_overview" formatted="false">Ember · resumen</string>
+    <string name="timer_left" formatted="false">hasta reiniciar la sesión</string>
+    <string name="accent" formatted="false">Color de acento</string>
+    <string name="ac_service" formatted="false">Servicio</string>
+    <string name="ac_terracotta" formatted="false">Terracota</string>
+    <string name="ac_blue" formatted="false">Azul</string>
+    <string name="ac_green" formatted="false">Verde</string>
+    <string name="ac_purple" formatted="false">Morado</string>
+    <string name="ac_pink" formatted="false">Rosa</string>
+    <string name="text_size" formatted="false">Tamaño del texto</string>
+    <string name="ts_s" formatted="false">Pequeño</string>
+    <string name="ts_m" formatted="false">Mediano</string>
+    <string name="ts_l" formatted="false">Grande</string>
+    <string name="corners" formatted="false">Esquinas</string>
+    <string name="c_square" formatted="false">Rectas</string>
+    <string name="c_soft" formatted="false">Suaves</string>
+    <string name="c_round" formatted="false">Redondas</string>
+    <string name="c_max" formatted="false">Máx</string>
+    <string name="show_header" formatted="false">Mostrar encabezado</string>
+    <string name="pv_reset_s" formatted="false">Se reinicia a las 20:00 · en 2 h 16 min</string>
+    <string name="pv_reset_w" formatted="false">Se reinicia el 15 nov · en 6 d 18 h</string>
+    <string name="pv_timer" formatted="false">2 h 16 min</string>
+    <string name="pv_ov1">Semana 88% · hasta 20:00</string>
+    <string name="pv_ov2">Semana 64% · hasta 21:30</string>
+    <string name="widgets_hint" formatted="false">Así se ve cada widget con tus datos. Toca «Añadir» para colocarlo; mantén pulsado un widget para personalizarlo.</string>
+    <string name="notifications" formatted="false">Notificaciones</string>
+    <string name="n_session" formatted="false">Reinicio del límite de sesión</string>
+    <string name="n_session_d" formatted="false">Cuando el límite de 5 horas vuelva a estar completo</string>
+    <string name="n_week" formatted="false">Reinicio del límite semanal</string>
+    <string name="n_week_d" formatted="false">Cuando se renueve el límite semanal</string>
+    <string name="n_low" formatted="false">Queda poco límite</string>
+    <string name="n_low_d">Avisar cuando quede ≤ 10 % de la sesión</string>
+    <string name="n_note" formatted="false">Por el ahorro de batería, las notificaciones pueden llegar con algo de retraso.</string>
+    <string name="n_denied" formatted="false">Permite las notificaciones de Ember en los ajustes de Android</string>
+    <string name="ch_resets" formatted="false">Reinicios de límites</string>
+    <string name="ch_low" formatted="false">Avisos de límite</string>
+    <string name="nt_session_t">%s: límite de sesión completo otra vez</string>
+    <string name="nt_session_b">Vuelve a haber 100 % disponible: a trabajar.</string>
+    <string name="nt_week_t">%s: límite semanal renovado</string>
+    <string name="nt_week_b" formatted="false">Nueva semana con el límite completo.</string>
+    <string name="nt_low_t">%1$s: queda el %2$d%% de la sesión</string>
+    <string name="nt_low_b">Se reinicia %s</string>
+    <plurals name="st_hit">
+        <item quantity="one">vez se agotó el límite</item>
+        <item quantity="other">veces se agotó el límite</item>
+    </plurals>
+</resources>
