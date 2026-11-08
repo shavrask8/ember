@@ -252,14 +252,20 @@ namespace Ember
             if (Browser.LoginRunning) return;
             try
             {
-                Browser.Login(p.LoginUrl, (_, _) => Dispatcher.BeginInvoke(new Action(() =>
+                Browser.Login(p, ok => Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    if (!S.Logged.Contains(p.Id)) S.Logged.Add(p.Id);
-                    if (p.Id == "codex") S.CodexEnabled = true;
-                    S.Save();
-                    Refresh();
+                    if (ok)
+                    {
+                        if (!S.Logged.Contains(p.Id)) S.Logged.Add(p.Id);
+                        if (p.Id == "codex") S.CodexEnabled = true;
+                        Errors.Remove(p.Id);
+                        S.Save();
+                        Refresh();
+                    }
+                    else if (!S.IsLogged(p.Id)) tray.Balloon("Ember", L.T("login_failed"));
                     UpdateViews();
                 })));
+                UpdateViews();
             }
             catch (Exception e)
             {

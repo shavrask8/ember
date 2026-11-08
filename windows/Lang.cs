@@ -42,6 +42,7 @@ namespace Ember
             {"err_org", "Організацію не знайдено"}, {"err_rate", "Забагато запитів, спробуйте пізніше"},
             {"err_codex", "Codex недоступний для цього акаунта"}, {"err_browser", "Не вдалося запустити браузер"},
             {"no_browser", "Не знайдено Microsoft Edge або Google Chrome"},
+            {"login_failed", "Вхід не завершено — спробуйте ще раз і закрийте вікно, коли побачите свої чати"}, {"login_wait", "Увійдіть у вікні браузера, потім закрийте його"},
             {"w_opus", "Opus · тиждень"}, {"w_sonnet", "Sonnet · тиждень"},
             // меню
             {"m_open", "Відкрити панель"}, {"m_refresh", "Оновити зараз"}, {"m_badge", "Плаваючий значок"},
@@ -108,6 +109,7 @@ namespace Ember
             {"err_org", "Organization not found"}, {"err_rate", "Too many requests, try later"},
             {"err_codex", "Codex isn’t available for this account"}, {"err_browser", "Couldn’t start the browser"},
             {"no_browser", "Microsoft Edge or Google Chrome not found"},
+            {"login_failed", "Sign-in wasn’t completed — try again and close the window once you see your chats"}, {"login_wait", "Sign in in the browser window, then close it"},
             {"w_opus", "Opus · week"}, {"w_sonnet", "Sonnet · week"},
             {"m_open", "Open panel"}, {"m_refresh", "Refresh now"}, {"m_badge", "Floating badge"},
             {"m_settings", "Settings"}, {"m_exit", "Quit Ember"}, {"m_lock", "Lock badge"},

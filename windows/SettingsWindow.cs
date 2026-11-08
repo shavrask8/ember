@@ -126,7 +126,7 @@ namespace Ember
 
         string ServicesKey()
         {
-            var k = S.CodexEnabled + "|";
+            var k = S.CodexEnabled + "|" + Browser.LoginRunning + "|";
             foreach (var p in Provs.All) k += S.IsLogged(p.Id) + app.Error(p) + app.Get(p)?.Updated.Ticks + "|";
             return k;
         }
@@ -247,7 +247,7 @@ namespace Ember
                 var dot = new System.Windows.Shapes.Ellipse { Width = 7, Height = 7, Margin = new Thickness(0, 0, 7, 0), VerticalAlignment = VerticalAlignment.Center };
                 dot.SetResourceReference(System.Windows.Shapes.Shape.FillProperty, err != null ? "Danger" : logged ? "Good" : "Text2");
                 st.Children.Add(dot);
-                string status = err ?? (logged ? L.T("s_connected") + (u != null ? " · " + string.Format(L.T("updated_at"), Fmt.Clock(u.Updated)).ToLower(L.Culture) : "") : desc);
+                string status = Browser.LoginRunning ? L.T("login_wait") : err ?? (logged ? L.T("s_connected") + (u != null ? " · " + string.Format(L.T("updated_at"), Fmt.Clock(u.Updated)).ToLower(L.Culture) : "") : desc);
                 st.Children.Add(K.T(status, 12, err != null ? "Danger" : "Text2"));
                 text.Children.Add(st);
             }

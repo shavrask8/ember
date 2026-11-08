@@ -253,11 +253,15 @@ namespace Ember
     /// Справжній браузер у невидимому режимі: його пропускає Cloudflare, а cookie беруться
     /// з окремого профілю Ember, у який користувач один раз входить. Браузер живе лише
     /// кілька секунд під час оновлення і одразу закривається.
+    ///
+    /// Edge/Chrome після запуску можуть перезапустити себе (процес, який ми стартували, одразу
+    /// завершується, а браузер працює далі в іншому). Тому за браузером стежимо не за процесом,
+    /// а за файлом DevToolsActivePort у профілі й закриваємо його командою Browser.close.
     /// </summary>
     public static class Browser
     {
-        static Process login;
-        static readonly HttpClient http = new HttpClient { Timeout = TimeSpan.FromSeconds(2) };
+        static volatile bool loginActive;
+        static readonly HttpClient http = new HttpClient(new HttpClientHandler { UseProxy = false }) { Timeout = TimeSpan.FromSeconds(3) };
 
         public static string Exe()
         {
@@ -280,10 +284,22 @@ namespace Ember
         public static string Profile =>
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Ember", "browser");
 
-        public static bool LoginRunning
+        static string PortFile => Path.Combine(Profile, "DevToolsActivePort");
+
+        /// <summary>Короткий журнал роботи з браузером (для діагностики), %AppData%\Emberrowser.log.</summary>
+        public static void Trace(string msg)
         {
-            get { try { return login != null && !login.HasExited; } catch { return false; } }
+            try
+            {
+                var f = Path.Combine(Settings.Dir, "browser.log");
+                Directory.CreateDirectory(Settings.Dir);
+                if (File.Exists(f) && new FileInfo(f).Length > 200_000) File.Delete(f);
+                File.AppendAllText(f, DateTime.Now.ToString("HH:mm:ss.fff") + "  " + msg + Environment.NewLine);
+            }
+            catch { }
         }
+
+        public static bool LoginRunning => loginActive;
 
         /// <summary>User-Agent як у звичайного (не headless) браузера тієї ж версії.</summary>
         static string Ua(string exe)
@@ -302,54 +318,174 @@ namespace Ember
                    " Safari/537.36" + (edge ? " Edg/" + ver : "");
         }
 
-        public static void Login(string url, EventHandler exited)
+        // ---------- керування браузером профілю ----------
+
+        static string Get(string url)
+        {
+            try { return http.GetStringAsync(url).GetAwaiter().GetResult(); }
+            catch (Exception e) { Trace("GET " + url + " failed: " + e.GetType().Name + ": " + e.Message); return null; }
+        }
+
+        /// <summary>Порт DevTools браузера, який зараз працює з профілем Ember, або null.</summary>
+        static int? ActivePort()
+        {
+            try
+            {
+                if (!File.Exists(PortFile)) return null;
+                string first;
+                using (var fs = new FileStream(PortFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))
+                using (var r = new StreamReader(fs)) first = r.ReadLine();
+                if (!int.TryParse(first, out var port)) return null;
+                return Get("http://127.0.0.1:" + port + "/json/version") != null ? port : null;
+            }
+            catch { return null; }
+        }
+
+        static string BrowserWs(int port)
+        {
+            var t = Get("http://127.0.0.1:" + port + "/json/version");
+            try { return t == null ? null : (string)JsonNode.Parse(t)?["webSocketDebuggerUrl"]; } catch { return null; }
+        }
+
+        /// <summary>Запускає браузер з профілем Ember і чекає, поки він відкриє DevTools. Повертає порт.</summary>
+        static int Launch(string args)
         {
             var exe = Exe() ?? throw new Exception(L.T("no_browser"));
             Directory.CreateDirectory(Profile);
+            try { File.Delete(PortFile); } catch { }
             var psi = new ProcessStartInfo(exe,
-                "--user-data-dir=\"" + Profile + "\" --no-first-run --no-default-browser-check --window-size=520,780 --app=" + url)
-            { UseShellExecute = false };
-            login = Process.Start(psi);
-            login.EnableRaisingEvents = true;
-            login.Exited += exited;
+                "--user-data-dir=\"" + Profile + "\" --remote-debugging-port=0 --no-first-run --no-default-browser-check " +
+                "--disable-background-networking --disable-component-update --disable-sync " + args)
+            { UseShellExecute = false, CreateNoWindow = true };
+            Trace("launch: " + exe + " " + psi.Arguments);
+            using (var pr = Process.Start(psi)) Trace("started pid " + pr?.Id);
+            var sw = Stopwatch.StartNew();
+            while (sw.ElapsedMilliseconds < 20000)
+            {
+                var port = ActivePort();
+                if (port != null) { Trace("devtools on port " + port + " after " + sw.ElapsedMilliseconds + " ms"); return port.Value; }
+                Thread.Sleep(250);
+            }
+            string pf = null;
+            try { pf = File.Exists(PortFile) ? File.ReadAllText(PortFile).Replace('\n', '|') : "no port file"; } catch (Exception e) { pf = e.Message; }
+            Trace("launch timeout; port file: " + pf);
+            Close(null);
+            throw new Exception(L.T("err_browser"));
         }
 
-        static int FreePort()
+        /// <summary>Закриває браузер профілю: спершу штатно, якщо не вийшло — примусово.</summary>
+        static void Close(int? port)
         {
-            var l = new TcpListener(IPAddress.Loopback, 0);
-            l.Start();
-            int port = ((IPEndPoint)l.LocalEndpoint).Port;
-            l.Stop();
-            return port;
+            port ??= ActivePort();
+            if (port != null)
+            {
+                var ws = BrowserWs(port.Value);
+                if (ws != null)
+                {
+                    try
+                    {
+                        using var c = new Cdp(ws);
+                        c.Send("Browser.close");
+                    }
+                    catch { }
+                }
+                var sw = Stopwatch.StartNew();
+                while (sw.ElapsedMilliseconds < 5000 && ActivePort() != null) Thread.Sleep(200);
+            }
+            KillProfile();
         }
+
+        /// <summary>Добиває процеси браузера, які ще тримають профіль Ember (запасний варіант).</summary>
+        static void KillProfile()
+        {
+            try
+            {
+                var cmd = "Get-CimInstance Win32_Process -Filter \"Name='msedge.exe' OR Name='chrome.exe'\" | " +
+                          "Where-Object { $_.CommandLine -like '*\\Ember\\browser*' } | " +
+                          "ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }";
+                var enc = Convert.ToBase64String(Encoding.Unicode.GetBytes(cmd));
+                var psi = new ProcessStartInfo("powershell.exe", "-NoProfile -NonInteractive -EncodedCommand " + enc)
+                { UseShellExecute = false, CreateNoWindow = true };
+                using var p = Process.Start(psi);
+                p?.WaitForExit(10000);
+            }
+            catch { }
+        }
+
+        // ---------- вхід ----------
+
+        static bool HasSession(JsonArray cookies, string prov)
+        {
+            if (cookies == null) return false;
+            foreach (var c in cookies)
+            {
+                var name = (string)c?["name"] ?? "";
+                var domain = (string)c?["domain"] ?? "";
+                if (prov == "claude" && name == "sessionKey" && domain.Contains("claude.ai")) return true;
+                if (prov == "codex" && name.StartsWith("__Secure-next-auth.session-token") && domain.Contains("chatgpt.com")) return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Відкриває вікно входу. Поки воно відкрите — перевіряє, чи з’явилась cookie сесії.
+        /// Коли користувач закриє вікно, викликає done(true), якщо вхід справді виконано.
+        /// </summary>
+        public static void Login(Prov p, Action<bool> done)
+        {
+            if (loginActive) return;
+            if (Exe() == null) throw new Exception(L.T("no_browser"));
+            loginActive = true;
+            new Thread(() =>
+            {
+                bool ok = false;
+                try
+                {
+                    Close(null); // якщо профіль ще тримає попередній браузер
+                    int port = Launch("--window-size=520,780 --app=" + p.LoginUrl);
+                    while (true)
+                    {
+                        Thread.Sleep(1500);
+                        var ws = BrowserWs(port);
+                        if (ws == null) break; // вікно закрили
+                        try
+                        {
+                            using var c = new Cdp(ws);
+                            var r = c.Call("Storage.getCookies", null, 5000);
+                            if (HasSession(r?["result"]?["cookies"] as JsonArray, p.Id)) ok = true;
+                        }
+                        catch { }
+                    }
+                }
+                catch { }
+                finally
+                {
+                    KillProfile();
+                    loginActive = false;
+                    done(ok);
+                }
+            }) { IsBackground = true, Name = "Ember login" }.Start();
+        }
+
+        // ---------- читання лімітів ----------
 
         /// <summary>Відкриває кожен сервіс у невидимому браузері й виконує його JS. Результат — JSON-текст.</summary>
         public static Dictionary<string, string> Run(IList<Prov> provs)
         {
             var res = new Dictionary<string, string>();
             var exe = Exe() ?? throw new Exception(L.T("no_browser"));
-            Directory.CreateDirectory(Profile);
-            int port = FreePort();
-            var psi = new ProcessStartInfo(exe,
-                "--headless=new --disable-gpu --no-first-run --no-default-browser-check --mute-audio --disable-extensions " +
-                "--disable-background-networking --disable-component-update --disable-sync " +
-                "--user-data-dir=\"" + Profile + "\" --remote-debugging-port=" + port +
-                " --user-agent=\"" + Ua(exe) + "\" about:blank")
-            { UseShellExecute = false, CreateNoWindow = true };
-            var proc = Process.Start(psi);
+            if (ActivePort() != null) Close(null); // залишок попереднього запуску
+            int port = Launch("--headless=new --disable-gpu --mute-audio --disable-extensions --user-agent=\"" + Ua(exe) + "\" about:blank");
             try
             {
-                // процес браузера — з низьким пріоритетом, щоб не заважати роботі
-                try { proc.PriorityClass = ProcessPriorityClass.BelowNormal; } catch { }
-
                 string wsUrl = null;
                 var sw = Stopwatch.StartNew();
-                while (wsUrl == null && sw.ElapsedMilliseconds < 20000)
+                while (wsUrl == null && sw.ElapsedMilliseconds < 10000)
                 {
+                    var text = Get("http://127.0.0.1:" + port + "/json/list");
                     try
                     {
-                        var text = http.GetStringAsync("http://127.0.0.1:" + port + "/json/list").GetAwaiter().GetResult();
-                        if (JsonNode.Parse(text) is JsonArray list)
+                        if (text != null && JsonNode.Parse(text) is JsonArray list)
                             foreach (var t in list)
                                 if ((string)t?["type"] == "page") { wsUrl = (string)t["webSocketDebuggerUrl"]; break; }
                     }
@@ -375,7 +511,7 @@ namespace Ember
             }
             finally
             {
-                Kill(proc);
+                Close(port);
             }
             return res;
         }
@@ -393,14 +529,10 @@ namespace Ember
             }
         }
 
-        static void Kill(Process p)
-        {
-            try { p.Kill(true); p.WaitForExit(4000); } catch { }
-        }
-
         /// <summary>Вийти: якщо не лишилося підключених сервісів — стираємо весь профіль браузера.</summary>
         public static void WipeProfile()
         {
+            Close(null);
             try { if (Directory.Exists(Profile)) Directory.Delete(Profile, true); } catch { }
         }
     }
@@ -432,6 +564,14 @@ namespace Ember
                 if (o != null && o["id"] is JsonValue v && v.TryGetValue<int>(out var rid) && rid == my) return o;
             }
             throw new Exception("CDP timeout: " + method);
+        }
+
+        /// <summary>Надіслати команду й не чекати відповіді (напр. Browser.close).</summary>
+        public void Send(string method)
+        {
+            var msg = new JsonObject { ["id"] = ++id, ["method"] = method, ["params"] = new JsonObject() }.ToJsonString();
+            var bytes = Encoding.UTF8.GetBytes(msg);
+            ws.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None).Wait(3000);
         }
 
         public string Eval(string js, int timeoutMs)
