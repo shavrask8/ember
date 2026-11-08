@@ -1,7 +1,6 @@
 package ua.shavra.claudelimits
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
@@ -270,11 +269,7 @@ class MainActivity : Activity() {
             logo.animate().rotationBy(720f).scaleX(1.4f).scaleY(1.4f).setDuration(700)
                 .withEndAction { logo.animate().scaleX(1f).scaleY(1f).setDuration(200).start() }
                 .start()
-            AlertDialog.Builder(this)
-                .setTitle(R.string.egg_title)
-                .setMessage("Стас ЛОХ")
-                .setPositiveButton(R.string.egg_ok, null)
-                .show()
+            EasterEgg.show(this)
         }
     }
 

@@ -43,4 +43,6 @@
     <string name="cw_look">Вигляд</string>
     <string name="cw_colors">Кольори</string>
     <string name="cw_behavior">Поведінка</string>
+    <string name="egg_sub">Офіційно підтверджено Ember</string>
+    <string name="egg_stamp">ПІДТВЕРДЖЕНО</string>
 </resources>

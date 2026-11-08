@@ -43,4 +43,6 @@
     <string name="cw_look">Aussehen</string>
     <string name="cw_colors">Farben</string>
     <string name="cw_behavior">Verhalten</string>
+    <string name="egg_sub">Offiziell bestätigt von Ember</string>
+    <string name="egg_stamp">BESTÄTIGT</string>
 </resources>
