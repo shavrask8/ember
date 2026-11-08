@@ -427,14 +427,47 @@ namespace Ember
             return false;
         }
 
+        /// <summary>Чи тримає зараз якийсь браузер профіль Ember (файл lockfile відкритий ексклюзивно).</summary>
+        static bool ProfileLocked()
+        {
+            var f = Path.Combine(Profile, "lockfile");
+            if (!File.Exists(f)) return false;
+            try
+            {
+                using (new FileStream(f, FileMode.Open, FileAccess.ReadWrite, FileShare.None)) { }
+                return false;
+            }
+            catch (FileNotFoundException) { return false; }
+            catch { return true; }
+        }
+
+        /// <summary>Чи є в профілі сесія сервісу: коротко запускаємо невидимий браузер і читаємо cookie.</summary>
+        static bool CheckSession(Prov p)
+        {
+            int port = Launch("--headless=new --disable-gpu --mute-audio --disable-extensions about:blank");
+            try
+            {
+                var ws = BrowserWs(port);
+                if (ws == null) return false;
+                using var c = new Cdp(ws);
+                var r = c.Call("Storage.getCookies", null, 8000);
+                var ok = HasSession(r?["result"]?["cookies"] as JsonArray, p.Id);
+                Trace("session check " + p.Id + ": " + ok);
+                return ok;
+            }
+            catch (Exception e) { Trace("session check failed: " + e.Message); return false; }
+            finally { Close(port); }
+        }
+
         /// <summary>
-        /// Відкриває вікно входу. Поки воно відкрите — перевіряє, чи з’явилась cookie сесії.
-        /// Коли користувач закриє вікно, викликає done(true), якщо вхід справді виконано.
+        /// Відкриває вікно входу як звичайний браузер — без DevTools, інакше Google вважає його
+        /// «небезпечним» і не пускає. Коли користувач закриє вікно, перевіряємо, чи з’явилась сесія,
+        /// і викликаємо done(true), якщо вхід справді виконано.
         /// </summary>
         public static void Login(Prov p, Action<bool> done)
         {
             if (loginActive) return;
-            if (Exe() == null) throw new Exception(L.T("no_browser"));
+            var exe = Exe() ?? throw new Exception(L.T("no_browser"));
             loginActive = true;
             new Thread(() =>
             {
@@ -442,25 +475,25 @@ namespace Ember
                 try
                 {
                     Close(null); // якщо профіль ще тримає попередній браузер
-                    int port = Launch("--window-size=520,780 --app=" + p.LoginUrl);
-                    while (true)
-                    {
-                        Thread.Sleep(1500);
-                        var ws = BrowserWs(port);
-                        if (ws == null) break; // вікно закрили
-                        try
-                        {
-                            using var c = new Cdp(ws);
-                            var r = c.Call("Storage.getCookies", null, 5000);
-                            if (HasSession(r?["result"]?["cookies"] as JsonArray, p.Id)) ok = true;
-                        }
-                        catch { }
-                    }
+                    Directory.CreateDirectory(Profile);
+                    var psi = new ProcessStartInfo(exe,
+                        "--user-data-dir=\"" + Profile + "\" --no-first-run --no-default-browser-check --window-size=520,780 --app=" + p.LoginUrl)
+                    { UseShellExecute = false };
+                    Trace("login: " + psi.Arguments);
+                    using (Process.Start(psi)) { }
+
+                    // чекаємо, поки браузер займе профіль, а потім — поки звільнить (вікно закрили)
+                    var sw = Stopwatch.StartNew();
+                    while (!ProfileLocked() && sw.ElapsedMilliseconds < 20000) Thread.Sleep(300);
+                    Trace("login window " + (ProfileLocked() ? "open" : "did not open"));
+                    while (ProfileLocked()) Thread.Sleep(1000);
+                    Trace("login window closed");
+                    Thread.Sleep(800);
+                    ok = CheckSession(p);
                 }
-                catch { }
+                catch (Exception e) { Trace("login failed: " + e.Message); }
                 finally
                 {
-                    KillProfile();
                     loginActive = false;
                     done(ok);
                 }

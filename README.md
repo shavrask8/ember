@@ -79,6 +79,7 @@ Grab the files from the [latest release](../../releases/latest):
 | `Ember-…-android.apk` | Android 8.0 or newer |
 | `Ember-…-windows-x64.exe` | Windows 10 / 11 — works out of the box |
 | `Ember-…-windows-x64-net10.exe` | Same app, 0.5 MB, needs the [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) |
+| `Ember-…-windows-x64-net10.zip` | Same app as a folder — use it if Windows Smart App Control blocks the single `.exe` |
 
 **Android:** open the APK and allow installing from your browser or file manager. On first launch pick a service and sign in.
 
